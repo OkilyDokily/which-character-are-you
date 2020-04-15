@@ -36,15 +36,16 @@ function assignWinners(){
 function getWinners(){
     var characterArray = Object.keys(Scores);
     var scoresArray = characterArray.map(function(key){
-      return Score[key];
+      return Scores[key];
     });
     var highest = Math.max(...scoresArray);
-    var winners;
+    var winners = [];
     characterArray.forEach(function(item){
-      if(Scores[item]){
+      if(Scores[item] === highest){
         winners.push(item)
       }
     });
+    console.log(winners);
     return winners;
 }
 
@@ -58,7 +59,9 @@ $(document).ready(function(){
       }
     });
     assignWinners();
-    getWinners().forEach
+    getWinners().forEach(function(winner){
+      $("#resultslist").append("<li>" + winner + "</li>")
+    })
     
 
     
