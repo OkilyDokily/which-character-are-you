@@ -38,15 +38,16 @@ $(document).ready(function(){
     keysArray.forEach(function(item){
       characterTraits[item].forEach(function(character){
         Scores[character]++;
-      })
-    })
+      });
+    });
 
-    var scoresArray = keysArray.map(function(key){
+    var characterArray = Object.keys(Scores);
+    var scoresArray = characterArray.map(function(key){
       return Score[key];
     });
     var highest = Math.max(...scoresArray);
     var winners;
-    keysArray.forEach(function(item){
+    characterArray.forEach(function(item){
       if(Scores[item]){
         winners.push(item)
       }
