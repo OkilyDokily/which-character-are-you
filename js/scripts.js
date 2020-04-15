@@ -79,8 +79,5 @@ $(document).ready(function(){
       $("div#results p").remove();
     }
 
-    
-
-    
   });
 });

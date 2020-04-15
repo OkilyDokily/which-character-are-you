@@ -1,3 +1,9 @@
 div#results{
-  display:none;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  margin-bottom: 50px;
 }
