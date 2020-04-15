@@ -3,7 +3,7 @@ var characterTraits ={
 "daddyissues":["Locke","Jack"],
 "mommyissues":["Kate"],
 "overeating":["Hurley"],
-"respect":["Charlie","Locke","Michael","Jin"],
+"morerespect":["Charlie","Locke","Michael","Jin"],
 "goodtime":["Hurley"],
 "leader":["Jack","Kate","Locke"],
 "adventure":["Locke"],
@@ -25,9 +25,10 @@ var Scores =
 }
 
 function assignWinners(answeredYes){
-  var keysArray = Object.keys(answeredYes);
-    keysArray.forEach(function(item){
-      characterTraits[item].forEach(function(character){
+  var userAnsweredYesToTheseCharacterTraits = Object.keys(answeredYes);
+    userAnsweredYesToTheseCharacterTraits.forEach(function(item){
+      var arrayOfCharactersForATrait = characterTraits[item];
+      arrayOfCharactersForATrait.forEach(function(character){
         Scores[character]++;
       });
     });
