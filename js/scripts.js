@@ -25,10 +25,9 @@ var Scores =
 }
 
 function assignWinners(answeredYes){
-  var userAnsweredYesToTheseCharacterTraits = Object.keys(answeredYes);
+  var userAnsweredYesToTheseCharacterTraits = answeredYes;
     userAnsweredYesToTheseCharacterTraits.forEach(function(item){
-      var arrayOfCharactersForATrait = characterTraits[item];
-      arrayOfCharactersForATrait.forEach(function(character){
+      arrayOfCharactersForATrait[item].forEach(function(character){
         Scores[character]++;
       });
     });
