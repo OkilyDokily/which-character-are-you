@@ -68,7 +68,7 @@ $(document).ready(function(){
         answeredYes.push($(this).attr("name"));
       }
     });
-    if (!validate()){
+    if (!isValidated()){
       return;
     }
 
@@ -76,6 +76,7 @@ $(document).ready(function(){
     assignWinners(answeredYes);
     $("div#results").css('display', 'flex');
     getWinners().forEach(function(winner){
+      $("div#results h1").show();
       $("#results").append("<img src='img/" + winner.toLowerCase() + ".jpg" + "'" + ">");
       $("#results").append("<p>" + winner + "</p>");
     })
@@ -86,12 +87,15 @@ $(document).ready(function(){
       $("div#results p").remove();
     }
 
-    function validate(){
+    function isValidated(){
       if (answeredYes.length < 2){
         $("div#results").show();
         $("div#results h1").hide();
         $("#results").append("<p class='error'>You need to answer yes to at least two questions.</p>");
         return false;
+      }
+      else{
+        return true;
       }
     }
 
