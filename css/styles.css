@@ -1,9 +1,23 @@
 div#results{
-  display:flex;
+  display:none;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 50px;
 }
 
 form {
   margin-bottom: 50px;
+}
+
+div#results p{
+  font-weight: bold;
+}
+
+.error {
+  margin-top: 200px;
+  color: red;
 }
