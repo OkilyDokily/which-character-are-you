@@ -44,23 +44,41 @@ function getWinners(){
         winners.push(character)
       }
     });
-    console.log(winners)
     return winners;
+}
+
+function reset(){
+  var characterArray = Object.keys(Scores);
+  characterArray.forEach(function(character){
+    Scores[character] = 0;
+  })
 }
 
 $(document).ready(function(){
   $("form").submit(function(e){
     e.preventDefault();
+    hide();
+    reset();
     var answeredYes = [];
     $("input:checked").each(function(item){
       if( $(this).val() == "yes"){
         answeredYes.push($(this).attr("name"));
       }
     });
+
     assignWinners(answeredYes);
+    $("div#results").show();
     getWinners().forEach(function(winner){
-      $("#resultslist").append("<li>" + winner + "</li>")
+      $("#results").append("<img src='img/" + winner.toLowerCase() + ".jpg" + "'" + ">");
+      $("#results").append("<p>" + winner + "</p>");
     })
+    
+    function hide(){
+      $("div#results").hide();
+      $("div#results img").remove();
+      $("div#results p").remove();
+    }
+
     
 
     
