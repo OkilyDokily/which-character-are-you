@@ -24,13 +24,14 @@ var Scores =
 "Sawyer":0
 }
 
-function assignWinners(){
-  var keysArray = Object.keys(characterTraits);
+function assignWinners(answeredYes){
+  var keysArray = Object.keys(answeredYes);
     keysArray.forEach(function(item){
       characterTraits[item].forEach(function(character){
         Scores[character]++;
       });
     });
+   
 }
 
 function getWinners(){
@@ -45,7 +46,7 @@ function getWinners(){
         winners.push(item)
       }
     });
-    console.log(winners);
+ 
     return winners;
 }
 
@@ -58,7 +59,7 @@ $(document).ready(function(){
         answeredYes.push($(this).attr("name"));
       }
     });
-    assignWinners();
+    assignWinners(answeredYes);
     getWinners().forEach(function(winner){
       $("#resultslist").append("<li>" + winner + "</li>")
     })
