@@ -24,14 +24,12 @@ var Scores =
 "Sawyer":0
 }
 
-function assignWinners(answeredYes){
-  var userAnsweredYesToTheseCharacterTraits = answeredYes;
-    userAnsweredYesToTheseCharacterTraits.forEach(function(item){
-      arrayOfCharactersForATrait[item].forEach(function(character){
+function assignWinners(userAnsweredYesToTheseCharacterTraits){
+    userAnsweredYesToTheseCharacterTraits.forEach(function(characterTrait){
+      characterTraits[characterTrait].forEach(function(character){
         Scores[character]++;
       });
     });
-   
 }
 
 function getWinners(){
@@ -41,12 +39,12 @@ function getWinners(){
     });
     var highest = Math.max(...scoresArray);
     var winners = [];
-    characterArray.forEach(function(item){
-      if(Scores[item] === highest){
-        winners.push(item)
+    characterArray.forEach(function(character){
+      if(Scores[character] === highest){
+        winners.push(character)
       }
     });
- 
+    console.log(winners)
     return winners;
 }
 
